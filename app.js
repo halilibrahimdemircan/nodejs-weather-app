@@ -15,9 +15,9 @@ const request = require("postman-request");
 const url2 =
   "https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiaGFsaWxpYnJhaGltZCIsImEiOiJja3k4em85dmkwMXBrMm9sN2k1cWoyYjRoIn0.3gDzYPBHzC00iZslUCivHg&limit=1";
 
-request({ url: url2 }, (error, response) => {
+request({ url: url2, json: true }, (error, response) => {
   //   console.log(JSON.parse(response.body));
-  const data = JSON.parse(response.body.features[0]);
-  console.log(data.center[0]);
-  //   console.log("Latitude: " + data.center[0] + "Longitude: " + data.center[1]);
+  const data = response.body.features[0];
+  //   console.log(data.center[0]);
+  console.log("Latitude: " + data.center[1] + " Longitude: " + data.center[0]);
 });
